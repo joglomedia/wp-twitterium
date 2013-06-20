@@ -1,7 +1,7 @@
 wpnuke-twitterium
 =================
 
-Description: A super simple WordPress plugin to handles twitter feeds, including parsing @username, #hashtag, and URLs into links. Add latest tweet widget to WordPress. Thanks to @themattharis for his tmhOAuth lib (https://github.com/themattharris/tmhOAuth)
+Description: A super simple WordPress plugin to handles twitter feeds, including parsing @username, #hashtag, and URLs into links. Add latest tweet widget to WordPress. Thanks to @themattharris for his simple but powerful tmhOAuth lib (https://github.com/themattharris/tmhOAuth)
 
 /** REQUIREMENTS **/
 - WordPress 3.5 or later version.
