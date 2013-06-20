@@ -24,7 +24,7 @@ define( 'WPNT_VERSION', '1.0' );
  */
 final class WPNuke_Twitterium {
 
-  /**
+	/**
 	 * @var $instance The one true WPNuke_Twitterium
 	 */
 	private static $instance;
