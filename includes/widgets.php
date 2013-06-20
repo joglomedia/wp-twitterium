@@ -31,17 +31,17 @@ class wpnt_tweets_widget extends WP_Widget {
 		extract( $args );
 
 		/* User settings. */
-		$title				= apply_filters('widget_title', $instance['title'] );
+		$title			= apply_filters('widget_title', $instance['title'] );
 		$consumer_key		= $instance['consumer_key'];
 		$consumer_secret	= $instance['consumer_secret'];
-		$token				= $instance['token'];
-		$secret				= $instance['secret'];
-		$bearer				= $instance['bearer'];
+		$token			= $instance['token'];
+		$secret			= $instance['secret'];
+		$bearer			= $instance['bearer'];
 		$screen_name		= $instance['screen_name'];
-		$count				= $instance['count'];
+		$count			= $instance['count'];
 		$exclude_replies	= $instance['exclude_replies'];
-		$followtext			= $instance['followtext'];
-		$cache_time			= $instance['cache_time'];
+		$followtext		= $instance['followtext'];
+		$cache_time		= $instance['cache_time'];
 
 		// Before widget (defined by themes).
 		echo $before_widget;
