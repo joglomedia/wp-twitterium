@@ -2,11 +2,11 @@
 /**
  * WPNuke Twitterium - WPNT OAuth
  *
- * @package		WPNuke
+ * @package	WPNuke
  * @subpackage	WPNuke_Twitterium/OAuth
  * @copyright	Copyright (c) 2013, MasEDI.Net
- * @license		GNU Public License - http://opensource.org/licenses/gpl-2.0.php 
- * @since		1.0
+ * @license	GNU Public License - http://opensource.org/licenses/gpl-2.0.php 
+ * @since	1.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -17,6 +17,12 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 if ( class_exists( 'tmhOAuth' ) ) {
 
+/**
+ * WPNuke Twitterium OAuth Class
+ *
+ * @require tmhOAuth: https://github.com/themattharris/tmhOAuth
+ * @since WPNuke Twitterium 1.0
+ */
 class WPNT_OAuth extends tmhOAuth {
 
 	// some configurable variable, you need to create new Twitter app to get variable below
@@ -33,9 +39,9 @@ class WPNT_OAuth extends tmhOAuth {
 				// change the values below to ones for your application
 				'consumer_key'		=> '',
 				'consumer_secret'	=> '',
-				'token'				=> '',
-				'secret'			=> '',
-				'bearer'			=> '',
+				'token'			=> '',
+				'secret'		=> '',
+				'bearer'		=> '',
 				'curl_cainfo'		=> WPNT_TMHOAUTH_DIR . 'cacert.pem',
 				'curl_capath'		=> WPNT_TMHOAUTH_DIR,
 				'user_agent'		=> WPNT_USER_AGENT,
@@ -56,19 +62,19 @@ class WPNT_OAuth extends tmhOAuth {
 	 * Ref: 
 	 * - http://stackoverflow.com/a/15306910
 	 *
-	 * @param object $tweet object
-	 * @return string $formatted_tweet
+	 * @param object $tweet raw tweet object
+	 * @return string $formatted_tweet formatted tweet
 	 */
 	public function parse_tweet( &$tweet ) {
 		
 		if ( !is_object( $tweet ) ) return false;
 		
-		// Convert tweet text to array of one-character strings
+		// Convert tweet text to array of one-character strings.
 		$characters = str_split($tweet->text);
 
-		// Insert starting and closing link tags at indices...
+		// Insert starting and closing link tags at indices.
 
-		// For @user_mentions
+		// For @user_mentions.
 		$user_mentions = $tweet->entities->user_mentions;
 		if ( !empty( $user_mentions ) ) {
 			foreach ( $user_mentions as $entity ) {
@@ -78,7 +84,7 @@ class WPNT_OAuth extends tmhOAuth {
 			}               
 		}
 		
-		// For #hashtags
+		// For #hashtags.
 		$hashtags = $tweet->entities->hashtags;
 		if ( !empty( $hashtags ) ) {
 			foreach ( $hashtags as $entity ) {
@@ -88,7 +94,7 @@ class WPNT_OAuth extends tmhOAuth {
 			}
 		}
 
-		// For url link
+		// For url link.
 		$urls = $tweet->entities->urls;
 		if ( !empty( $urls ) ) {
 			foreach ( $urls as $entity ) {
@@ -98,7 +104,7 @@ class WPNT_OAuth extends tmhOAuth {
 			}
 		}
 
-		// For media
+		// For media.
 		$media = isset( $tweet->entities->media ) ? $tweet->entities->media : array();
 		if ( !empty( $media ) ) {
 			foreach ( $media as $entity ) {
@@ -108,7 +114,7 @@ class WPNT_OAuth extends tmhOAuth {
 			}
 		}
 
-		// Convert array back to string
+		// Convert array back to string.
 		$formatted_tweet = implode('', $characters);
 		
 		return $formatted_tweet;
