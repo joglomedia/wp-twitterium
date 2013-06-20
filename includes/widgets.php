@@ -1,16 +1,22 @@
 <?php
 /**
- * WPNuke Twitterium - Twitter Widget
+ * WPNuke Twitterium - Latest Tweet Widget
  *
- * @package		WPNuke
+ * @package	WPNuke
  * @subpackage	WPNuke_Twitterium/Widgets
  * @copyright	Copyright (c) 2013, MasEDI.Net
- * @license		GNU Public License - http://opensource.org/licenses/gpl-2.0.php 
- * @since		1.0
+ * @license	GNU Public License - http://opensource.org/licenses/gpl-2.0.php 
+ * @since	1.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
+/**
+ * WPNuke Twitterium Latest Tweet Widget Class
+ *
+ * @since WPNuke Twitterium 1.0
+ */
 class wpnt_tweets_widget extends WP_Widget {
+
 	function wpnt_tweets_widget() {
 		/* Widget settings. */
 		$widget_ops = array( 'classname' => 'wpnt_tweets_widget', 'description' => __('A widget that displays your latest tweets.', 'wpnt') );
@@ -20,7 +26,7 @@ class wpnt_tweets_widget extends WP_Widget {
 		$this->WP_Widget( 'wpnt_tweets_widget', __('WPNuke Twitterium - Latest Tweets', 'wpnt'), $widget_ops, $control_ops );
 	}
 
-	// Display the Widget
+	// Display the Widget.
 	function widget( $args, $instance ) {
 		extract( $args );
 
@@ -37,17 +43,15 @@ class wpnt_tweets_widget extends WP_Widget {
 		$followtext			= $instance['followtext'];
 		$cache_time			= $instance['cache_time'];
 
-		/* Before widget (defined by themes). */
+		// Before widget (defined by themes).
 		echo $before_widget;
 
-		/* Title of widget (before and after defined by themes). */
+		// Title of widget (before and after defined by themes).
 		if ( $title ) {
 			echo $before_title . $title . $after_title;
 		}
 
-		/* Display Latest Tweets. */
-		
-		global $wp_version;
+		/** Display Latest Tweets. **/
 		
 		// Check if Twitter API credential is sets.
 		if ( !empty( $consumer_key ) && !empty( $consumer_secret ) && !empty( $token ) && !empty( $secret ) ) {
@@ -65,22 +69,22 @@ class wpnt_tweets_widget extends WP_Widget {
 					array(
 						'consumer_key'		=> $consumer_key,
 						'consumer_secret'	=> $consumer_secret,
-						'token'				=> $token,
-						'secret'			=> $secret,
-						'bearer'			=> $bearer,
+						'token'			=> $token,
+						'secret'		=> $secret,
+						'bearer'		=> $bearer,
 						'curl_cainfo'		=> WPNT_TMHOAUTH_DIR . 'cacert.pem',
 						'curl_capath'		=> WPNT_TMHOAUTH_DIR,
 						'user_agent'		=> WPNT_USER_AGENT,
 					)
 				);
 
-				// Crate a new instance.
+				// Crate a new OAuth instance.
 				$wpnt_widget = new WPNT_OAuth( $OAconfig );
 				
 				// Setup API request parameters.
 				$params = array( 
 					'screen_name'		=> $screen_name,
-					'count'				=> $count,
+					'count'			=> $count,
 					'exclude_replies'	=> $exclude_replies
 				);
 				$apiurl = $wpnt_widget->url('1.1/statuses/user_timelines');
@@ -130,25 +134,25 @@ class wpnt_tweets_widget extends WP_Widget {
 			_e('<p>Please configure your WPNuke Tweets Widget via admin dashboard.</p>', 'wpnt');
 		}
 
-		/* After widget (defined by themes). */
+		// After widget (defined by themes).
 		echo $after_widget;
 	}
 
 	// Update and save widget
 	function update( $new_instance, $old_instance ) {
-		$instance						= $old_instance;
+		$instance			= $old_instance;
 		
-		$instance['title']				= strip_tags( $new_instance['title'] );
-		$instance['consumer_key']		= strip_tags( $new_instance['consumer_key'] );
+		$instance['title']		= strip_tags( $new_instance['title'] );
+		$instance['consumer_key']	= strip_tags( $new_instance['consumer_key'] );
 		$instance['consumer_secret']	= strip_tags( $new_instance['consumer_secret'] );
-		$instance['token']				= strip_tags( $new_instance['token'] );
-		$instance['secret']				= strip_tags( $new_instance['secret'] );
-		$instance['bearer']				= strip_tags( $new_instance['bearer'] );
-		$instance['screen_name']		= strip_tags( $new_instance['screen_name'] );
-		$instance['count']				= strip_tags( $new_instance['count'] );
+		$instance['token']		= strip_tags( $new_instance['token'] );
+		$instance['secret']		= strip_tags( $new_instance['secret'] );
+		$instance['bearer']		= strip_tags( $new_instance['bearer'] );
+		$instance['screen_name']	= strip_tags( $new_instance['screen_name'] );
+		$instance['count']		= strip_tags( $new_instance['count'] );
 		$instance['exclude_replies']	= strip_tags( $new_instance['exclude_replies'] );
-		$instance['followtext']			= strip_tags( $new_instance['followtext'] );
-		$instance['cache_time']			= strip_tags( $new_instance['cache_time'] );
+		$instance['followtext']		= strip_tags( $new_instance['followtext'] );
+		$instance['cache_time']		= strip_tags( $new_instance['cache_time'] );
 		
 		// Widget setting updated, also update the saved data (delete transient)
 		delete_transient( 'wpnt_cache_' . $instance['screen_name'] );
@@ -159,18 +163,17 @@ class wpnt_tweets_widget extends WP_Widget {
 	// Widget settings
 	function form( $instance ) {
 
-		/** Set up some default widget settings.
-			retrieve default WPNuke Twitterium settings **/
+		/** Set up some default widget settings. retrieve default WPNuke Twitterium settings **/
 
 		$defaults = array(
-		'title'				=> 'Latest Tweets',
+		'title'			=> 'Latest Tweets',
 		'consumer_key'		=> get_option( 'wpnt_consumer_key' ),
 		'consumer_secret'	=> get_option( 'wpnt_consumer_secret' ),
-		'token'				=> get_option( 'wpnt_access_token' ),
-		'secret'			=> get_option( 'wpnt_access_token_secret' ),
-		'bearer'			=> '',
+		'token'			=> get_option( 'wpnt_access_token' ),
+		'secret'		=> get_option( 'wpnt_access_token_secret' ),
+		'bearer'		=> '',
 		'screen_name'		=> get_option( 'wpnt_screen_name' ),
-		'count'				=> get_option( 'wpnt_tweet_count' ),
+		'count'			=> get_option( 'wpnt_tweet_count' ),
 		'exclude_replies'	=> 'false',
 		'followtext'		=> 'WPNuke on Twitter',
 		'cache_time'		=> get_option( 'wpnt_cache_time' ), // Cache cache_time time, in seconds
