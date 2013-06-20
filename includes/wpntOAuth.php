@@ -24,14 +24,7 @@ if ( class_exists( 'tmhOAuth' ) ) {
  * @since WPNuke Twitterium 1.0
  */
 class WPNT_OAuth extends tmhOAuth {
-
-	// some configurable variable, you need to create new Twitter app to get variable below
-/* 	protected $consumer_key = 'YOUR_CONSUMER_KEY';
-	protected $consumer_secret = 'YOUR_CONSUMER_SECRET';
-	protected $token = 'A_USER_TOKEN';
-	protected $secret = 'A_USER_SECRET';
-	protected $bearer = 'YOUR_OAUTH2_TOKEN';
- */	
+	
 	public function __construct($config = array()) {
 
 		$this->config = array_merge(
