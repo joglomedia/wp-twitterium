@@ -77,6 +77,10 @@ final class WPNuke_Twitterium {
 		$this->includes_dir = apply_filters( 'wpnt_includes_dir', trailingslashit( $this->plugin_dir . 'includes' ) );
 		$this->includes_url = apply_filters( 'wpnt_includes_url', trailingslashit( $this->plugin_url . 'includes' ) );
 
+		// Modules dir
+		$this->modules_dir = apply_filters( 'wpnt_modules_dir', trailingslashit( $this->plugin_dir . 'modules' ) );
+		$this->modules_url = apply_filters( 'wpnt_modules_url', trailingslashit( $this->plugin_url . 'modules' ) );
+
 		// Languages dir
 		$this->lang_dir     = apply_filters( 'wpnt_lang_dir', trailingslashit( $this->plugin_dir . 'languages' ) );
 
@@ -93,6 +97,10 @@ final class WPNuke_Twitterium {
 		// Includes dir
 		define( 'WPNT_INCLUDES_DIR', $this->includes_dir );
 		define( 'WPNT_INCLUDES_URL', $this->includes_url );
+		
+		// Modules dir
+		define( 'WPNT_MODULES_DIR', $this->includes_dir );
+		define( 'WPNT_MODULES_URL', $this->includes_url );
 		
 		// tmhOAuth dir
 		define( 'WPNT_TMHOAUTH_DIR', $this->tmhoauth_dir );
@@ -117,9 +125,12 @@ final class WPNuke_Twitterium {
 	private function include_files() {
 		require( $this->tmhoauth_dir . 'tmhOAuth.php' );
 		require( $this->includes_dir . 'wpntOAuth.php' );
-		require( $this->includes_dir . 'settings.php' );
-		require( $this->includes_dir . 'widgets.php' );
+		//require( $this->includes_dir . 'settings.php' );
+		//require( $this->includes_dir . 'widgets.php' );
 		//require( $this->includes_dir . 'shortcodes.php' );
+		
+		// load all available modules
+		$this->load_modules();
 
 		do_action( 'wpnt_include_files' );
 
@@ -186,6 +197,26 @@ final class WPNuke_Twitterium {
 	}
 	
 	/**
+	 * Load any existing compatability modules that allow this plugin to work alongside other plugins.
+	 *
+	 * @since WPNuke Twitterium 1.0
+	 */
+	public function load_modules() {
+		//$dir = trailingslashit( WP_PLUGIN_DIR ) . basename( $this->dir_name ) . '/modules/';
+		$dir = $this->modules_dir;
+		if ( $handle = opendir( $dir ) ) {
+		    while ( false !== ( $filename = readdir( $handle ) ) ) {
+		    	$file = $dir . $filename;
+		        //if ( @is_file( $file ) && preg_match( '/\.module\.php$/', $file ) ) {
+				if ( @is_file( $file ) && preg_match( '/\.php$/', $file ) ) {
+		        	include_once $file;
+		        }
+		    }
+	    	closedir( $handle );
+		}
+	}
+	
+	/**
 	 * Loads the plugin language files.
 	 *
 	 * @since WPNuke Twitterium 1.0
@@ -218,16 +249,16 @@ final class WPNuke_Twitterium {
  * The main function responsible for returning the one true WPNuke Twitterium Instance to functions everywhere.
  * Use this function like you would a global variable, except without needing to declare the global.
  *
- * Example: <?php $wpn_twitterium = wpn_twitterium(); ?>
+ * Example: <?php $wpn_twitterium = init_twitterium(); ?>
  *
  * @since WPNuke Twitterium 1.0
  *
  * @return The one true WPNuke Twitterium Instance
  */
-function wpn_twitterium() {
+function init_wpnt() {
 	return WPNuke_Twitterium::instance();
 }
-wpn_twitterium();
+init_wpnt();
 
 // Plugin activation hook.
 //register_activation_hook(__FILE__, array( 'WPNuke_Twitterium', 'plugin_activation' ));

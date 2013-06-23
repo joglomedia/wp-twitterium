@@ -2,19 +2,14 @@
 /**
  * WPNuke Twitterium - Settings Panel
  *
- * @package	WPNuke
+ * @package		WPNuke
  * @subpackage	WPNuke_Twitterium/Settings
  * @copyright	Copyright (c) 2013, MasEDI.Net
- * @license	GNU Public License - http://opensource.org/licenses/gpl-2.0.php 
- * @since	1.0
+ * @license		GNU Public License - http://opensource.org/licenses/gpl-2.0.php 
+ * @since		1.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-/**
- * WPNuke Twitterium Settings Class
- *
- * @since WPNuke Twitterium 1.0
- */
 class WPNT_Settings {
 
 	public function __construct() {
@@ -224,5 +219,4 @@ class WPNT_Settings {
 }
 
 $WPNT_Settings = new WPNT_Settings();
-
 ?>
