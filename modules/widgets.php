@@ -2,11 +2,11 @@
 /**
  * WPNuke Twitterium - Twitter Widget
  *
- * @package		WPNuke
+ * @package	WPNuke
  * @subpackage	WPNuke_Twitterium/Widgets
  * @copyright	Copyright (c) 2013, MasEDI.Net
- * @license		GNU Public License - http://opensource.org/licenses/gpl-2.0.php 
- * @since		1.0
+ * @license	GNU Public License - http://opensource.org/licenses/gpl-2.0.php 
+ * @since	1.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
