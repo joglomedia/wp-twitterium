@@ -25,17 +25,17 @@ class wpnt_tweets_widget extends WP_Widget {
 		extract( $args );
 
 		/* User settings. */
-		$title				= apply_filters('widget_title', $instance['title'] );
+		$title			= apply_filters('widget_title', $instance['title'] );
 		$consumer_key		= $instance['consumer_key'];
 		$consumer_secret	= $instance['consumer_secret'];
-		$token				= $instance['token'];
-		$secret				= $instance['secret'];
-		$bearer				= $instance['bearer'];
+		$token			= $instance['token'];
+		$secret			= $instance['secret'];
+		$bearer			= $instance['bearer'];
 		$screen_name		= $instance['screen_name'];
-		$count				= $instance['count'];
+		$count			= $instance['count'];
 		$exclude_replies	= $instance['exclude_replies'];
-		$followtext			= $instance['followtext'];
-		$cache_time			= $instance['cache_time'];
+		$followtext		= $instance['followtext'];
+		$cache_time		= $instance['cache_time'];
 
 		/* Before widget (defined by themes). */
 		echo $before_widget;
@@ -65,9 +65,9 @@ class wpnt_tweets_widget extends WP_Widget {
 					array(
 						'consumer_key'		=> $consumer_key,
 						'consumer_secret'	=> $consumer_secret,
-						'token'				=> $token,
-						'secret'			=> $secret,
-						'bearer'			=> $bearer,
+						'token'			=> $token,
+						'secret'		=> $secret,
+						'bearer'		=> $bearer,
 						'curl_cainfo'		=> WPNT_TMHOAUTH_DIR . 'cacert.pem',
 						'curl_capath'		=> WPNT_TMHOAUTH_DIR,
 						'user_agent'		=> WPNT_USER_AGENT,
@@ -80,7 +80,7 @@ class wpnt_tweets_widget extends WP_Widget {
 				// Setup API request parameters.
 				$params = array( 
 					'screen_name'		=> $screen_name,
-					'count'				=> $count,
+					'count'			=> $count,
 					'exclude_replies'	=> $exclude_replies
 				);
 				$apiurl = $wpnt_widget->url('1.1/statuses/user_timeline');
@@ -139,19 +139,18 @@ class wpnt_tweets_widget extends WP_Widget {
 
 	// Update and save widget
 	function update( $new_instance, $old_instance ) {
-		$instance						= $old_instance;
-		
-		$instance['title']				= strip_tags( $new_instance['title'] );
-		$instance['consumer_key']		= strip_tags( $new_instance['consumer_key'] );
+		$instance			= $old_instance;
+		$instance['title']		= strip_tags( $new_instance['title'] );
+		$instance['consumer_key']	= strip_tags( $new_instance['consumer_key'] );
 		$instance['consumer_secret']	= strip_tags( $new_instance['consumer_secret'] );
-		$instance['token']				= strip_tags( $new_instance['token'] );
-		$instance['secret']				= strip_tags( $new_instance['secret'] );
-		$instance['bearer']				= strip_tags( $new_instance['bearer'] );
-		$instance['screen_name']		= strip_tags( $new_instance['screen_name'] );
-		$instance['count']				= strip_tags( $new_instance['count'] );
+		$instance['token']		= strip_tags( $new_instance['token'] );
+		$instance['secret']		= strip_tags( $new_instance['secret'] );
+		$instance['bearer']		= strip_tags( $new_instance['bearer'] );
+		$instance['screen_name']	= strip_tags( $new_instance['screen_name'] );
+		$instance['count']		= strip_tags( $new_instance['count'] );
 		$instance['exclude_replies']	= strip_tags( $new_instance['exclude_replies'] );
-		$instance['followtext']			= strip_tags( $new_instance['followtext'] );
-		$instance['cache_time']			= strip_tags( $new_instance['cache_time'] );
+		$instance['followtext']		= strip_tags( $new_instance['followtext'] );
+		$instance['cache_time']		= strip_tags( $new_instance['cache_time'] );
 		
 		// Widget setting updated, also update the saved data (delete transient)
 		delete_transient( 'wpnt_cache_' . $instance['screen_name'] );
@@ -163,17 +162,17 @@ class wpnt_tweets_widget extends WP_Widget {
 	function form( $instance ) {
 
 		/** Set up some default widget settings.
-			retrieve default WPNuke Twitterium settings **/
+		retrieve default WPNuke Twitterium settings **/
 
 		$defaults = array(
-		'title'				=> 'Latest Tweets',
+		'title'			=> 'Latest Tweets',
 		'consumer_key'		=> get_option( 'wpnt_consumer_key' ),
 		'consumer_secret'	=> get_option( 'wpnt_consumer_secret' ),
-		'token'				=> get_option( 'wpnt_access_token' ),
-		'secret'			=> get_option( 'wpnt_access_token_secret' ),
-		'bearer'			=> '',
+		'token'			=> get_option( 'wpnt_access_token' ),
+		'secret'		=> get_option( 'wpnt_access_token_secret' ),
+		'bearer'		=> '',
 		'screen_name'		=> get_option( 'wpnt_screen_name' ),
-		'count'				=> get_option( 'wpnt_tweet_count' ),
+		'count'			=> get_option( 'wpnt_tweet_count' ),
 		'exclude_replies'	=> 'false',
 		'followtext'		=> 'WPNuke on Twitter',
 		'cache_time'		=> get_option( 'wpnt_cache_time' ), // Cache cache_time time, in seconds
