@@ -6,7 +6,7 @@ Description: A super simple WordPress plugin to handles twitter feeds, including
 Requirement
 =================
 - WordPress 3.5 or later version (http://wordpress.org/).
-- Web hosting with cURL.
+- Web hosting with cURL (get one from http://www.joglohosting.com/).
 - Twitter API's OAuth (https://dev.twitter.com/apps/).
 
 Installation
@@ -18,6 +18,7 @@ Installation
 
 Docs
 =================
+Not yet docummented...
 
 Changelogs
 =================
