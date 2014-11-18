@@ -2,16 +2,22 @@
 /**
  * WPNuke Twitterium - Settings Panel
  *
- * @package		WPNuke
+ * @package	WPNuke
  * @subpackage	WPNuke_Twitterium/Settings
  * @copyright	Copyright (c) 2013, MasEDI.Net
- * @license		GNU Public License - http://opensource.org/licenses/gpl-2.0.php 
- * @since		1.0
+ * @license	GNU Public License - http://opensource.org/licenses/gpl-2.0.php 
+ * @since	1.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
+/**
+ * WPNT Settings Class
+ */
 class WPNT_Settings {
-
+	
+	/**
+	 * Constructor
+	 */
 	public function __construct() {
 		if(is_admin()){
 			add_action('admin_menu', array($this, 'add_plugin_page'));
@@ -39,7 +45,7 @@ class WPNT_Settings {
 		<p>
 		<?php
 		// Info
-		printf( __('Doesn\'t have Twitter API OAuth settings?  Create once %s, it is free.', 'wpnuke'), '<a href="https://dev.twitter.com/apps/" target="_blank">here</a>' );
+		printf( __('Doesn\'t have Twitter API OAuth key?  Get once %s, it is free.', 'wpnuke'), '<a href="https://dev.twitter.com/apps/" target="_blank">here</a>' );
 		?>
 		</p>
 		
