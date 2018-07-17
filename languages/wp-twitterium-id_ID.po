@@ -1,0 +1,138 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Twitterium\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-26 18:47+0000\n"
+"PO-Revision-Date: 2017-08-26 18:48+0000\n"
+"Last-Translator: masedi <me@masedi.net>\n"
+"Language-Team: Indonesian\n"
+"Language: id-ID\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco - https://localise.biz/"
+
+#: modules/settings.php:90
+msgid "General Settings"
+msgstr ""
+
+#: modules/settings.php:97
+msgid "Screen Name"
+msgstr ""
+
+#: modules/settings.php:98
+msgid "Default Twitter username (without '@')"
+msgstr ""
+
+#: modules/settings.php:104
+msgid "Maximum Tweet Count"
+msgstr ""
+
+#: modules/settings.php:105
+msgid "The maximum tweets to retrieve."
+msgstr ""
+
+#: modules/settings.php:113
+msgid "Cache Expiration Time"
+msgstr ""
+
+#: modules/settings.php:114
+msgid "How long your tweet stored on cache (in second)."
+msgstr ""
+
+#: modules/settings.php:122
+msgid "Twitter API Settings"
+msgstr ""
+
+#: modules/settings.php:127
+msgid "Consumer Key"
+msgstr ""
+
+#: modules/settings.php:128
+msgid "Your Twitter app consumer key."
+msgstr ""
+
+#: modules/settings.php:135
+msgid "Consumer Secret"
+msgstr ""
+
+#: modules/settings.php:136
+msgid "Your Twitter app consumer secret."
+msgstr ""
+
+#: modules/settings.php:143
+msgid "Access Token"
+msgstr ""
+
+#: modules/settings.php:144
+msgid "Your Twitter app access token."
+msgstr ""
+
+#: modules/settings.php:151
+msgid "Access Token Secret"
+msgstr ""
+
+#: modules/settings.php:152
+msgid "Your Twitter app access token secret."
+msgstr ""
+
+#: modules/settings.php:159
+msgid "Access Token Bearer"
+msgstr ""
+
+#: modules/settings.php:160
+msgid "Your Twitter API token bearer (Optional)."
+msgstr ""
+
+#: modules/settings.php:167
+msgid "Display Settings"
+msgstr ""
+
+#: modules/settings.php:172
+msgid "Enable Custom Widget CSS"
+msgstr ""
+
+#: modules/settings.php:173
+msgid "Check to enable custom widget stylesheet."
+msgstr ""
+
+#: modules/settings.php:180
+msgid "Custom Widget CSS"
+msgstr ""
+
+#: modules/settings.php:181
+msgid "Your custom style sheet for Twitterium widget."
+msgstr ""
+
+#: modules/settings.php:296
+msgid "WP Twitterium Settings"
+msgstr ""
+
+#: modules/settings.php:413
+msgid "Save Changes"
+msgstr "Simpan Perubahan"
+
+#. Name of the plugin
+msgid "WP Twitterium"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"A super simple WordPress plugin to handles twitter feeds, including parsing "
+"@username, #hashtag, and URLs into links. Add latest tweet widgets and "
+"shortcodes to WordPress. Thanks to @themattharis for his <a href=\"https:"
+"//github.com/themattharris/tmhOAuth\">tmhOAuth</a> lib."
+msgstr ""
+
+#. URI of the plugin
+msgid "http://masedi.net/wordpress/plugins/wp-twitterium.html"
+msgstr ""
+
+#. Author of the plugin
+msgid "MasEDI"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "http://masedi.net/"
+msgstr ""
