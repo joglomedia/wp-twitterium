@@ -1,11 +1,11 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: 1.6.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-26 18:46+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2018-07-17 16:16+0000\n"
+"PO-Revision-Date: 2018-07-17 16:16+0000\n"
+"Last-Translator: Edi Septriyanto <eslabs.id@gmail.com>\n"
 "Language-Team: \n"
 "Language: \n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
@@ -13,6 +13,78 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/"
+
+#: wp-twitterium.php:128
+msgid "Follow Me on Twitter"
+msgstr ""
+
+#: wp-twitterium.php:210
+#, php-format
+msgid ""
+"<strong>Notice:</strong> in order to function properly, WP Twitterium "
+"requires <em>cURL module</em> enabled on your server side. If you need web "
+"hosting with cURL module enabled <a href=\"%s\" target=\"_blank\">please "
+"check here</a>!"
+msgstr ""
+
+#: modules/widgets.php:20
+msgid "Use this widget to display your latest tweets."
+msgstr ""
+
+#: modules/widgets.php:27
+msgid "WP Twitterium - Latest Tweets"
+msgstr ""
+
+#: modules/widgets.php:151
+msgid "<p>Please configure your WP Twitterium Widget from admin dashboard.</p>"
+msgstr ""
+
+#: modules/widgets.php:190
+msgid "Latest Tweets"
+msgstr ""
+
+#: modules/widgets.php:193
+#, php-format
+msgid "%s on Twitter"
+msgstr ""
+
+#: modules/widgets.php:205
+msgid "General Settings:"
+msgstr ""
+
+#: modules/widgets.php:209
+msgid "Title:"
+msgstr ""
+
+#: modules/widgets.php:213
+msgid "Twitter screen name (username):"
+msgstr ""
+
+#: modules/widgets.php:217
+msgid "Number of tweets to show: "
+msgstr ""
+
+#: modules/widgets.php:221
+msgid "Follow Me text to show:"
+msgstr ""
+
+#: modules/widgets.php:225
+msgid "Cache expiration time (in second):"
+msgstr ""
+
+#: modules/widgets.php:227
+msgid ""
+"WPTwitterium Widget uses caching system to store tweets data. This is useful "
+"to reduce the number of API request and server load."
+msgstr ""
+
+#: modules/widgets.php:231
+msgid "Exclude replies?"
+msgstr ""
+
+#: modules/widgets.php:235
+msgid "Delete cache on save setting?"
+msgstr ""
 
 #: modules/settings.php:90
 msgid "General Settings"
@@ -127,7 +199,7 @@ msgid ""
 msgstr ""
 
 #. URI of the plugin
-msgid "http://masedi.net/wordpress/plugins/wp-twitterium.html"
+msgid "http://x.eslabs.id/wordpress-plugin-wp-twitterium.html"
 msgstr ""
 
 #. Author of the plugin
@@ -135,5 +207,5 @@ msgid "MasEDI"
 msgstr ""
 
 #. Author URI of the plugin
-msgid "http://masedi.net/"
+msgid "http://x.eslabs.id/"
 msgstr ""
