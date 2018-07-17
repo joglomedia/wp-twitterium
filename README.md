@@ -24,7 +24,7 @@ Changelogs
 =================
 - 20/06/2013    First commit
 - 14/09/2017    Bug fix: tweet parser
-- 17/07/2018    Minor update
+- 17/07/2018    Minor update: code maintenance
 
 WP Twitterium
 Author  @masedi (http://x.eslabs.id/)
